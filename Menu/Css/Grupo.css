@@ -1,0 +1,33 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d;
+    color: #d1d1d1;
+}
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+}
+.text-rpg-accent {
+    color: #f39c12; /* Laranja/Dourado de destaque */
+}
+.bg-rpg-panel {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+}
+.btn-rpg {
+    background-image: linear-gradient(to right, #f39c12, #e67e22);
+    color: #1a1a1a;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 9999px; /* Full rounded */
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    transition: all 0.3s ease;
+}
+.btn-rpg:hover {
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+    transform: translateY(-2px);
+}
+.border-rpg-accent {
+    border-color: #f39c12;
+}

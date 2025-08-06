@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eldria RPG - Menu do Grupo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Css/Grupo.css">
+</head>
+<body class="antialiased">
+
+  <header class="bg-rpg-panel shadow-lg sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-rpg-accent">
+        ELDRIA<span class="text-white"> RPG</span>
+      </h1>
+      <div class="flex items-center space-x-4">
+        <a href="#" class="text-gray-400 hover:text-rpg-accent transition duration-300">
+          <i class="fas fa-user-circle text-xl"></i>
+          <span class="ml-2 font-semibold" id="nomeUsuario">Aventureiro</span>
+        </a>
+        <a href="#" class="px-4 py-2 bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-600 transition duration-300 shadow-md">
+          <i class="fas fa-sign-out-alt" id="btnSair"></i> Sair
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="flex flex-grow">
+    <aside id="sidebar" class="sidebar">
+      <button id="sidebarToggle" class="sidebar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a href="../../Menu/Html/Menu_Principal.html" class="sidebar-back-link">
+        <i class="fas fa-arrow-left"></i>
+        <span>Voltar ao Menu Principal</span>
+      </a>
+      <div class="sidebar-header">
+        <h2 id="groupNameSidebar" class="text-rpg-accent">Carregando...</h2>
+      </div>
+      <nav class="sidebar-nav flex-grow">
+        <ul>
+          <li class="active"><a href="#"><i class="fas fa-home"></i> <span>Início</span></a></li>
+          <li><a href="#"><i class="fas fa-users"></i> <span>Personagens</span></a></li>
+          <li><a href="#"><i class="fas fa-dragon"></i> <span>Monstros</span></a></li>
+          <li><a href="#"><i class="fas fa-map-marked-alt"></i> <span>Mapa</span></a></li>
+          <li><a href="#"><i class="fas fa-book"></i> <span>Histórias</span></a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i> <span>Sala de Ajuda</span></a></li>
+          <li><a href="#"><i class="fas fa-cog"></i> <span>Configurações</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content-area">
+      <div class="bg-rpg-panel p-8 rounded-2xl shadow-2xl border border-rpg-accent flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+        <img id="fotoGrupo" src="https://placehold.co/150x150?text=Grupo" alt="Imagem do Grupo" class="w-32 h-32 rounded-full object-cover border-4 border-rpg-accent">
+        <div class="text-center md:text-left">
+          <h2 id="nomeGrupo" class="text-5xl font-bold text-rpg-accent">Nome do Grupo</h2>
+          <p id="descricaoGrupo" class="text-gray-400 text-lg">Descrição do grupo...</p>
+          <div class="mt-4 flex items-center justify-center md:justify-start space-x-4">
+            <span id="contagemJogadores" class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm font-semibold">Jogadores</span>
+            <span id="tipoGrupo" class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm font-semibold">Público/Privado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-rpg-panel p-6 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-rpg-accent mb-4">Membros da Guilda</h3>
+          <ul id="lista-jogadores" class="space-y-4">
+            <!-- Jogadores serão carregados aqui -->
+          </ul>
+        </div>
+
+        <div class="bg-rpg-panel p-6 rounded-2xl shadow-lg">
+          <h3 class="text-2xl font-bold text-rpg-accent mb-4">Atividades Recentes do Grupo</h3>
+          <div class="space-y-4">
+            <!-- Conteúdo estático temporário -->
+            <p class="text-white">Nenhuma atividade recente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-rpg-panel p-6 rounded-2xl shadow-lg mt-8">
+        <h3 class="text-2xl font-bold text-rpg-accent mb-4">Convidar um Jogador</h3>
+        <p class="text-gray-400 mb-4">Digite o nickname do jogador que você deseja convidar para a guilda.</p>
+        <form id="formConvidar" class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <input type="text" id="nickJogador" name="nickJogador" placeholder="Nickname do jogador" class="px-4 py-2 w-full sm:w-80 rounded-lg border border-gray-600 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-rpg-accent transition duration-200" required>
+          <button type="submit" class="btn-rpg px-6 py-2 text-sm">
+            <i class="fas fa-paper-plane mr-2"></i> Enviar Convite
+          </button>
+        </form>
+        <div id="respostaConvite" class="text-sm text-center mt-4 text-rpg-accent"></div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-8 mt-auto text-center">
+    <div class="container mx-auto px-6">
+      <p>&copy; 2025 Eldria RPG. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="../Js/Grupo-RPG.js"></script>
+  <script type="module" src="../Js/convite.js"></script>
+  <script type="module" src="../../Menu/Js/menu.js"></script>
+</body>
+</html>

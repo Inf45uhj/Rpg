@@ -1,0 +1,165 @@
+/* Importação das fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English+SC&family=Inter:wght@300;400;700&display=swap');
+
+:root {
+  /* Cores base */
+  --rpg-bg: #120e0c; /* Marrom escuro quase preto */
+  --rpg-text: #d9cbb2; /* Cor de pergaminho envelhecido */
+  --rpg-panel-bg: rgba(26, 21, 18, 0.85); /* Fundo de painel semi-transparente */
+  --rpg-panel-border: #5c4e3f; /* Borda de madeira escura */
+
+  /* Cores de destaque (mantendo o laranja/ouro) */
+  --rpg-accent: #f39c12; /* Ouro */
+  --rpg-accent-dark: #e67e22; /* Ouro mais escuro */
+
+  /* Efeitos */
+  --rpg-glow: rgba(243, 156, 18, 0.4);
+  --rpg-glow-strong: rgba(243, 156, 18, 0.6);
+
+  /* Fontes */
+  --rpg-font-main: 'IM Fell English SC', serif; /* Fonte de pergaminho/manuscrito */
+  --rpg-font-heading: 'Cinzel', serif; /* Fonte de título épico */
+}
+
+/* --------------------------------------
+   ESTILIZAÇÃO GERAL DO CORPO
+   -------------------------------------- */
+body {
+  font-family: var(--rpg-font-main);
+  background-color: var(--rpg-bg);
+  color: var(--rpg-text);
+  /* Textura de pergaminho */
+  background-image: url('https://www.transparenttextures.com/patterns/old-map.png'), 
+                    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-size: repeat, cover;
+  background-blend-mode: multiply, normal;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--rpg-font-heading);
+  color: var(--rpg-accent);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--rpg-glow);
+  text-transform: uppercase;
+}
+
+.text-rpg-accent {
+  color: var(--rpg-accent);
+  text-shadow: 0 0 5px var(--rpg-glow);
+}
+
+/* --------------------------------------
+   ESTILO DO PAINEL RPG
+   -------------------------------------- */
+.bg-rpg-panel {
+  background-color: var(--rpg-panel-bg);
+  border: 2px solid var(--rpg-panel-border);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 10px var(--rpg-glow);
+}
+
+/* Adicionando uma segunda borda interna para um efeito mais robusto */
+.bg-rpg-panel::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid var(--rpg-accent-dark);
+  border-radius: 10px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* --------------------------------------
+   ESTILOS DE BOTÕES
+   -------------------------------------- */
+/* Botão principal com estilo "pedra" ou "metal" */
+.btn-rpg {
+  background-image: linear-gradient(to bottom, var(--rpg-accent), var(--rpg-accent-dark));
+  color: var(--rpg-panel-bg);
+  border: 2px solid var(--rpg-accent-dark);
+  padding: 1rem 2.5rem;
+  font-family: var(--rpg-font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 4px; /* Cantos mais quadrados */
+  box-shadow: 0 4px 15px var(--rpg-glow);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px #000;
+  letter-spacing: 1px;
+}
+
+.btn-rpg:hover {
+  box-shadow: 0 6px 20px var(--rpg-glow-strong);
+  transform: translateY(-3px);
+  background-image: linear-gradient(to top, var(--rpg-accent), var(--rpg-accent-dark));
+}
+
+/* Botão secundário */
+.btn-rpg-secondary {
+  border: 2px solid var(--rpg-accent);
+  color: var(--rpg-accent);
+  background-color: transparent;
+  font-family: var(--rpg-font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+}
+
+.btn-rpg-secondary:hover {
+  background-color: var(--rpg-glow);
+  transform: translateY(-3px);
+  color: var(--rpg-bg);
+  box-shadow: 0 0 10px var(--rpg-glow);
+}
+
+/* Borda de destaque */
+.border-rpg-accent {
+  border-color: var(--rpg-accent);
+}
+
+/* --------------------------------------
+   ESTILO DOS CARDS DE PASSO A PASSO
+   -------------------------------------- */
+.card-rpg-step {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra base para os cards */
+}
+
+.card-rpg-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--rpg-glow-strong);
+}
+
+.card-rpg-step .bg-rpg-panel {
+    /* Ajustes para o painel dentro do card */
+    background-color: var(--rpg-panel-bg);
+    border: 2px solid var(--rpg-panel-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: none; /* Remove a sombra extra para não empilhar efeitos */
+}
+
+/* --------------------------------------
+   ATUALIZAÇÃO DO LAYOUT DA SEÇÃO
+   -------------------------------------- */
+.section-rpg-steps {
+    /* Estilo para a seção inteira */
+    background-color: var(--rpg-panel-bg);
+    border: 2px solid var(--rpg-panel-border);
+    border-radius: 12px;
+    padding: 2rem;
+}

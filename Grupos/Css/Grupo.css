@@ -1,0 +1,175 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d0d;
+    color: #d1d1d1;
+    display: flex; /* Para o layout da barra lateral */
+    flex-direction: column; /* Para empilhar header, main e footer */
+    min-height: 100vh;
+}
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+}
+.text-rpg-accent {
+    color: #f39c12; /* Laranja/Dourado de destaque */
+}
+.bg-rpg-panel {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+}
+.bg-rpg-card {
+    background-color: #2a2a2a;
+    border-left: 4px solid #f39c12;
+    transition: transform 0.3s ease;
+}
+.btn-rpg {
+    background-image: linear-gradient(to right, #f39c12, #e67e22);
+    color: #1a1a1a;
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 9999px; /* Full rounded */
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    transition: all 0.3s ease;
+}
+.btn-rpg:hover {
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+    transform: translateY(-2px);
+}
+.border-rpg-accent {
+    border-color: #f39c12;
+}
+
+/* Estilos da Barra Lateral */
+.sidebar {
+    width: 64px; /* Largura inicial recolhida */
+    background-color: #1a1a1a;
+    border-right: 1px solid #333333;
+    padding-top: 1rem;
+    transition: width 0.3s ease;
+    overflow: hidden; /* Esconde o texto quando recolhido */
+    flex-shrink: 0; /* Não permite que a sidebar encolha */
+    display: flex;
+    flex-direction: column;
+}
+.sidebar.expanded {
+    width: 250px; /* Largura expandida */
+}
+.sidebar-header {
+    padding: 1rem;
+    text-align: center;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
+    border-bottom: 1px solid transparent; /* Padrão transparente */
+    transition: border-bottom-color 0.3s ease;
+}
+.sidebar.expanded .sidebar-header {
+    border-bottom-color: #333333; /* Borda visível quando expandido */
+}
+.sidebar-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #f39c12;
+    display: none; /* Escondido por padrão */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+}
+.sidebar.expanded .sidebar-header h2 {
+    display: block; /* Visível quando expandido */
+}
+.sidebar-toggle {
+    background-color: #2a2a2a;
+    color: #f39c12;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 1rem;
+    align-self: center; /* Centraliza o botão */
+    font-size: 1.25rem; /* Aumenta o tamanho do ícone do toggle */
+    width: 48px; /* Largura fixa para o botão */
+    height: 48px; /* Altura fixa para o botão */
+    display: flex; /* Centraliza o ícone */
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-toggle:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; /* Permite que a lista ocupe o espaço restante */
+}
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem; /* Ajuste de padding para melhor proporção */
+    color: #d1d1d1;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    margin: 0 0.5rem 0.5rem 0.5rem; /* Margem inferior para separar itens */
+}
+.sidebar-nav li a:hover, .sidebar-nav li.active a {
+    background-color: #2a2a2a;
+    color: #f39c12;
+}
+.sidebar-nav li a i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    width: 24px; /* Garante que os ícones tenham largura consistente */
+    text-align: center;
+}
+.sidebar-nav li a span {
+    display: none; /* Escondido por padrão */
+    font-size: 1rem; /* Tamanho da fonte para o texto do menu */
+}
+.sidebar.expanded .sidebar-nav li a span {
+    display: inline-block; /* Visível quando expandido */
+}
+
+/* Estilo para o link "Voltar ao Menu Principal" na sidebar */
+.sidebar-back-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #d1d1d1;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    margin: 0 0.5rem 1rem 0.5rem; /* Margem inferior para separar do header do grupo */
+    font-size: 1rem;
+    font-weight: 600;
+}
+.sidebar-back-link:hover {
+    background-color: #2a2a2a;
+    color: #f39c12;
+}
+.sidebar-back-link i {
+    font-size: 1.25rem; /* Tamanho do ícone da seta */
+    margin-right: 1rem;
+    width: 24px;
+    text-align: center;
+}
+.sidebar-back-link span {
+    display: none; /* Escondido por padrão */
+}
+.sidebar.expanded .sidebar-back-link span {
+    display: inline-block; /* Visível quando expandido */
+}
+
+/* Layout do Conteúdo Principal */
+.content-area {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto; /* Permite rolagem se o conteúdo for muito longo */
+}
